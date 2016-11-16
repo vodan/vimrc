@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <xsl:output method="xml" indent="yes" encoding="us-ascii" version="1.0" standalone="no"/>
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="node()|@*">
+        <xsl:copy>
+            <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+    </xsl:template>
+</xsl:stylesheet>
