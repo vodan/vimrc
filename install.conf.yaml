@@ -13,5 +13,5 @@
 - shell:
     - [mkdir -p ~/.vim/bundle, Creating bundle directory]
     - [mkdir -p ~/.vim/backup, Creating Backup directory]
-    - ["git clone https://github.com/vundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim", Cloning Vundle]
+    - ["if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then git clone https://github.com/vundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; fi", Cloning Vundle if not already there]
     - ["vim +PluginInstall +qall", Install all vim plugins]
