@@ -1,0 +1,17 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- clean: ['~']
+
+- link:
+    ~/.vimrc: vimrc
+    ~/.vim/privatSnips: privatSnips
+    ~/.vim/plugin.config: plugin.config
+
+- shell:
+    - [mkdir -p ~/.vim/bundle, Creating bundle directory]
+    - [mkdir -p ~/.vim/backup, Creating Backup directory]
+    - ["git clone https://github.com/vundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim", Cloning Vundle]
+    - ["vim +PluginInstall +qall", Install all vim plugins]
