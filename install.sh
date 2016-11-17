@@ -11,7 +11,8 @@ if [ ! -d "$HOME/.vim/backup" ]; then
     mkdir -p $HOME/.vim/backup
 fi
 
-ln -s $PWD/vimrc $HOME/.vimrc
-ln -s $PWD/plugin.config $HOME/.vim/plugin.config
+SCRIPT=$(dirname $(readlink -e $0))
+ln -s $SCRIPT/vimrc $HOME/.vimrc
+ln -s $SCRIPT/plugin.config $HOME/.vim/plugin.config
 
 vim +PluginInstall +qall
