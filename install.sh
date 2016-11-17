@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ ! -d "$HOME/.vim" ]; then
+if [ ! -d "$HOME/.vim/bundle" ]; then
     mkdir -p $HOME/.vim/bundle
 fi
 if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
