@@ -139,6 +139,4 @@ nnoremap <F6> :set nospell <Enter>
 
 " change local working directory
 command! CDC lcd %:p:h
-" open file browser in currents file directory
-command! E execute "NERDTree ".expand('%:h')
 
