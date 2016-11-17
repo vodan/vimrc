@@ -88,16 +88,16 @@ endif
 "==============================================================================
 " Personal Options
 "==============================================================================
-" Zeile/Spalte anzeigen
+" show row/column
 set ruler
 " show line numbers
 set number
-" set Backupdir
+" set backupdir
 set backupdir=~/.vim/backup
 " wild mode for tab completion in command mode: like in the bash
 set wildmode=longest,list
 
-" Tabwide 4 is best
+" tabwide 4 is best
 set tabstop=4
 set shiftwidth=4
 " makes the spaces feel like real tabs
@@ -112,7 +112,7 @@ set autoindent
 " display incomplete commands
 set showcmd
 
-"disable tab convert in Makefiles because Makefile don't work with spaces.
+" disable tab convert in Makefiles because Makefile don't work with spaces.
 augroup local_file_settings
     autocmd!
     autocmd FileType make setlocal noexpandtab
