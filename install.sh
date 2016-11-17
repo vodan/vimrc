@@ -14,5 +14,6 @@ fi
 SCRIPT=$(dirname $(readlink -e $0))
 ln -s $SCRIPT/vimrc $HOME/.vimrc
 ln -s $SCRIPT/plugin.config $HOME/.vim/plugin.config
+ln -s $SCRIPT/privatSnips $HOME/.vim/privatSnips
 
 vim +PluginInstall +qall
