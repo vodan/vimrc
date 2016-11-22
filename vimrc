@@ -120,6 +120,25 @@ augroup END
 "==============================================================================
 " Personal key maps
 "==============================================================================
+" map leader key to space 
+let mapleader = "\<Space>"
+
+" Space + w to save a file
+nnoremap <Leader>w :w<CR>
+
+"Copy & Paste to system clipboard with <Space>p and <Space>y
+vmap <Leader>y "+y
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Automaticlally jump to the end of text you pasted
+" Paste multiple lines multiple times
+vnoremap <silen> y y`]
+vnoremap <silen> p p`]
+nnoremap <silen> p p`]
+
 " use much faster key combination to leave insert mode
 inoremap jk <ESC>`^
 inoremap kj <ESC>`^
