@@ -1,6 +1,9 @@
 " My VIMrc File
 " author: vodan
 
+" map leader key to space 
+" this need to be done here that all plugins use the same leader key
+let mapleader = "\<Space>"
 "==============================================================================
 " Configure Vundle
 "==============================================================================
@@ -26,7 +29,11 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ervandew/supertab'
-Plugin 'Shougo/neocomplete.vim'
+if $USER ==# "root"
+    Plugin 'Shougo/neocomplete.vim'
+else
+    Plugin 'Valloric/YouCompleteMe'
+endif
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -52,7 +59,11 @@ call SourceConfigFile("airline.vim")
 call SourceConfigFile("fugitive.vim")
 call SourceConfigFile("nerdtree.vim")
 call SourceConfigFile("bufexplorer.vim")
-call SourceConfigFile("neocomplete.vim")
+if $USER ==# "root"
+    call SourceConfigFile("neocomplete.vim")
+else
+    call SourceConfigFile("youcompleteme.vim")
+endif
 call SourceConfigFile("ultisnips.vim")
 call SourceConfigFile("pandoc-syntax.vim")
 call SourceConfigFile("pandoc.vim")
@@ -120,9 +131,6 @@ augroup END
 "==============================================================================
 " Personal key maps
 "==============================================================================
-" map leader key to space 
-let mapleader = "\<Space>"
-
 " Space + w to save a file
 nnoremap <Leader>w :w<CR>
 
