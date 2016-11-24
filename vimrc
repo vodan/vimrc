@@ -167,3 +167,8 @@ nnoremap <F6> :set nospell <Enter>
 " change local working directory
 command! CDC lcd %:p:h
 
+augroup local_help_settings
+    autocmd!
+    autocmd FileType help nnoremap t <C-]>
+augroup END
+
