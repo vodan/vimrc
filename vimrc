@@ -133,6 +133,7 @@ augroup local_file_settings
     autocmd FileType go setlocal softtabstop=0
     autocmd FileType go setlocal tabstop=2
     autocmd FileType go setlocal softtabstop=2
+    autocmd FileType go setlocal shiftwidth=2
 augroup END
 "==============================================================================
 " Personal key maps
