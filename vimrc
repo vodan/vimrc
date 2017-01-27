@@ -123,10 +123,16 @@ set autoindent
 " display incomplete commands
 set showcmd
 
-" disable tab convert in Makefiles because Makefile don't work with spaces.
+" disable tab convert in Makefiles because Makefile don't work with spaces. Do
+" the same for go files as go uses tabs instead of spaces.
 augroup local_file_settings
     autocmd!
     autocmd FileType make setlocal noexpandtab
+    autocmd FileType make setlocal softtabstop=0
+    autocmd FileType go setlocal noexpandtab
+    autocmd FileType go setlocal softtabstop=0
+    autocmd FileType go setlocal tabstop=2
+    autocmd FileType go setlocal softtabstop=2
 augroup END
 "==============================================================================
 " Personal key maps
