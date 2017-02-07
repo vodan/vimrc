@@ -172,6 +172,12 @@ nnoremap <Leader>c :let  @/ = ""<CR>
 " bind keys for spell checking
 nnoremap <F5> :setlocal spell spelllang=en_us <Enter> :syntax spell toplevel <Enter> <C-l>
 nnoremap <F6> :set nospell <Enter>
+" command to enable german spell checking.
+command! SPELL execute "normal! :setlocal spell spelllang=de_de <Enter> :syntax spell toplevel <Enter> <C-l>"
+
+" set [ and ] for german keyboard layout.
+map ö [
+map ä ]
 
 " change local working directory
 command! CDC lcd %:p:h
