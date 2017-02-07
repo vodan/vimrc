@@ -1,5 +1,4 @@
 let g:simple_todo_map_keys = 0
-let g:simple_todo_list_symbol = '*'
 
 " Import function to have extion function for my workflow.
 fu! s:get_list_marker(linenr) " {{{
