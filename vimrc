@@ -39,6 +39,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'godlygeek/tabular'
+Plugin 'vitalk/vim-simple-todo'
 
 
 call vundle#end()
@@ -70,6 +71,7 @@ call SourceConfigFile("pandoc.vim")
 call SourceConfigFile("pandoc-wiki.vim")
 call SourceConfigFile("pretty-xml.vim")
 call SourceConfigFile("tabular.vim")
+call SourceConfigFile("vim-simple-todo.vim")
 
 "==============================================================================
 " Color scheme for Vim
