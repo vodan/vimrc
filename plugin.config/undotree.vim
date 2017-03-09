@@ -2,7 +2,7 @@
 nnoremap <leader>u :UndotreeToggle<cr>
 
 " change window layout
-let g:undotree_WindowLayout = 4
+let g:undotree_WindowLayout = 3
 " do not highlight changes text
 let g:undotree_HighlightChangedText = 0
 

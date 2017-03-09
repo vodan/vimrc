@@ -96,7 +96,8 @@ if exists('+colorcolumn')
 " it after the plugin with this autocmd.
 augroup MyColors
     autocmd!
-    autocmd VimEnter * highlight ColorColumn ctermbg=8 guibg=LightBlue
+    autocmd ColorScheme * highlight ColorColumn ctermbg=8 guibg=LightBlue
+    autocmd ColorScheme * highlight Search ctermbg=8 guibg=LightBlue
 augroup END
 endif
 
@@ -139,6 +140,19 @@ augroup local_file_settings
     autocmd FileType go setlocal softtabstop=2
     autocmd FileType go setlocal shiftwidth=2
 augroup END
+
+" When editing a file, always jump to the last known cursor position.
+" [[http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session]]
+" * Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" * Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+" * disable in diff mode
+autocmd BufReadPost *
+ \ if &diff == 0 && line("'\"") > 1 && line("'\"") <= line("$") |
+ \ exe "normal! g`\"" |
+ \ endif
+
 "==============================================================================
 " Personal key maps
 "==============================================================================
@@ -154,15 +168,19 @@ vmap <Leader>P "+P
 
 " Automaticlally jump to the end of text you pasted
 " Paste multiple lines multiple times
-vnoremap <silen> y y`]
-vnoremap <silen> p p`]
-nnoremap <silen> p p`]
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 " use much faster key combination to leave insert mode
 inoremap jk <ESC>`^
 inoremap kj <ESC>`^
 " use qq to leave visual mode
 vnoremap qq <ESC>
+
+" These work like # and g#, but do not move the cursor and always set hls.
+nnoremap <silent> <Leader>#  :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>
+nnoremap <silent> <Leader>g# :let @/ = expand('<cword>')\|set hlsearch<CR>
 
 " commands to fast access vimrc file and source it
 command! SVIM execute "source ".$MYVIMRC
