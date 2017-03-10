@@ -96,6 +96,7 @@ if exists('+colorcolumn')
 " it after the plugin with this autocmd.
 augroup MyColors
     autocmd!
+    autocmd VimEnter * highlight ColorColumn ctermbg=8 guibg=LightBlue
     autocmd ColorScheme * highlight ColorColumn ctermbg=8 guibg=LightBlue
     autocmd ColorScheme * highlight Search ctermbg=8 guibg=LightBlue
 augroup END

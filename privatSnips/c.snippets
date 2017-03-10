@@ -1,0 +1,114 @@
+snippet once "Include header once only guard"
+#ifndef ${1:`!v substitute(toupper(expand('%:t')),"\\.","_","g")`}
+#define $1
+
+${0}
+
+#endif /* end of include guard: $1 */
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char *argv[])
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet mainn "main() (main)"
+int main(void)
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet if "if condition"
+if (${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet el "else case"
+else {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet switch
+switch (${1:/* variable */}) {
+	case ${2:/* variable case */}:
+		${3}
+		${4:break;}${5}
+	default:
+		${6}
+}
+endsnippet
+snippet switchndef
+switch (${1:/* variable */}) {
+	case ${2:/* variable case */}:
+		${3}
+		${4:break;}${5}
+}
+endsnippet
+snippet case
+case ${1:/* variable case */}:
+	${2}
+	${3:break;}
+endsnippet
+snippet ret
+return ${0};
+endsnippet
+
+# Loops
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fori "for int loop (fori)"
+for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet wh
+while (${1:/* conditition */}){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet do
+do{
+	${VISUAL}$0
+}while (${1:/* condition */});
+endsnippet
+
+#functions
+snippet fun
+${1:void} ${2:function_name}(${3}){
+	${4}
+}
+endsnippet
+
+snippet fun0
+${1:void} ${2:function_name}(){
+	${3}
+}
+endsnippet
+
+# typedefs
+snippet typst "typedef struct"
+typedef struct
+{
+	${2:/* struct content */}
+} ${1:/* type name */};
+endsnippet
+
+snippet typen "typedef enum"
+typedef enum
+{
+	${2:/* enum content */}
+} ${1:/* type name */};
+endsnippet
