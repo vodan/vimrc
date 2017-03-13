@@ -1,11 +1,9 @@
 snippet dstart "Start a day with a diary entry" b
-<!--{{{1 ${2:`date +%a\ %d.%m.%Y`}-->
-## $2
+## ${2:`date +%a\ %d.%m.%Y`}
 
 * time:
 	* ${1:`date +%R`} start
 	$0
-<!--}}}1-->
 
 endsnippet
 

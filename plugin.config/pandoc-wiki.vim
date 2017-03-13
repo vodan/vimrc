@@ -7,7 +7,6 @@ nnoremap <leader>ww :call GotoWiki()<cr>
 augroup pandoc
     autocmd!
     autocmd FileType pandoc call SetKeyMaps()
-    autocmd FileType pandoc :set foldmethod=marker
 augroup END
 
 function! SetKeyMaps()
