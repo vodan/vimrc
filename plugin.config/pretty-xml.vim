@@ -13,6 +13,6 @@ augroup prettyxml
     autocmd!
     autocmd Filetype xml nmap <F8> :call DoTidy() <Enter> <Enter>
     autocmd Filetype xml vmap <F8> :Tidy <Enter>
-    autocmd Filetype xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd Filetype xml setlocal shiftwidth=2 tabstop=2 softtabstop=2 indentexpr=""
     autocmd Filetype html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END

@@ -86,29 +86,47 @@ do{
 endsnippet
 
 #functions
-snippet fun
+snippet dfun "Normal Function declaration"
+${1:void} ${2:function_name}(${3});
+endsnippet
+
+snippet fun "Normal Function definition"
 ${1:void} ${2:function_name}(${3}){
 	${4}
 }
 endsnippet
 
-snippet fun0
-${1:void} ${2:function_name}(){
+snippet dfun0 "Function declaration without arguments"
+${1:void} ${2:function_name}(void);
+endsnippet
+
+snippet fun0 "Function definition without arguments"
+${1:void} ${2:function_name}(void){
 	${3}
 }
 endsnippet
 
 # typedefs
-snippet typst "typedef struct"
+snippet typedefs "typedef struct"
 typedef struct
 {
 	${2:/* struct content */}
 } ${1:/* type name */};
 endsnippet
 
-snippet typen "typedef enum"
+snippet typedefe "typedef enum"
 typedef enum
 {
 	${2:/* enum content */}
 } ${1:/* type name */};
+endsnippet
+
+snippet todo "Simple TODO comment"
+// TODO[`echo $USER`:`date "+%d.%m.%g"`] (${0}) 
+endsnippet
+
+snippet todol "Long TODO comment"
+/**** TODO[`echo $USER`:`date "+%d.%m.%g"`] ****
+ * ${0}
+ */
 endsnippet

@@ -41,6 +41,7 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'godlygeek/tabular'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'mbbill/undotree'
+Plugin 'majutsushi/tagbar'
 
 
 call vundle#end()
@@ -74,6 +75,7 @@ call SourceConfigFile("pretty-xml.vim")
 call SourceConfigFile("tabular.vim")
 call SourceConfigFile("vim-simple-todo.vim")
 call SourceConfigFile("undotree.vim")
+call SourceConfigFile("tagbar.vim")
 
 "==============================================================================
 " Color scheme for Vim
