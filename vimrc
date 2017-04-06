@@ -161,7 +161,7 @@ autocmd BufReadPost *
 " Personal key maps
 "==============================================================================
 " Space + w to save a file
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>W :w<CR>
 
 "Copy & Paste to system clipboard with <Space>p and <Space>y
 vmap <Leader>y "+y

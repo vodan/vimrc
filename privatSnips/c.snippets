@@ -62,13 +62,13 @@ endsnippet
 
 # Loops
 snippet for "for loop (for)"
-for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}){
+for (${2:i} = 0; $2 < ${1:count}; $2++){
 	${VISUAL}$0
 }
 endsnippet
 
 snippet fori "for int loop (fori)"
-for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){
+for (int ${3:i} = ${2:0}; $3 < ${1:count}; $3++){
 	${VISUAL}$0
 }
 endsnippet
