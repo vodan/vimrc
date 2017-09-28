@@ -44,6 +44,7 @@ Plugin 'mbbill/undotree'
 Plugin 'majutsushi/tagbar'
 Plugin 'somini/vim-autoclose'
 Plugin 'fatih/vim-go'
+Plugin 'rhysd/vim-grammarous'
 
 call vundle#end()
 filetype plugin indent on

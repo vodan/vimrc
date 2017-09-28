@@ -1,0 +1,11 @@
+snippet xml "XML field"
+\`xml:"${1:displayName}"\`
+endsnippet
+
+# error handling
+snippet if "Basic error handling" "re.match('^.*err.*$', snip.buffer[snip.line-1])" be
+if err != nil {
+	log.${1:Fatal}(err)
+}
+endsnippet
+
