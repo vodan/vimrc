@@ -45,6 +45,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'somini/vim-autoclose'
 Plugin 'fatih/vim-go'
 Plugin 'rhysd/vim-grammarous'
+Plugin 'embear/vim-foldsearch'
 
 call vundle#end()
 filetype plugin indent on
