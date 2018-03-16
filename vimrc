@@ -46,6 +46,7 @@ Plugin 'somini/vim-autoclose'
 Plugin 'fatih/vim-go'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'embear/vim-foldsearch'
+Plugin 'junegunn/vim-easy-align'
 
 call vundle#end()
 filetype plugin indent on
@@ -80,6 +81,11 @@ call SourceConfigFile("vim-simple-todo.vim")
 call SourceConfigFile("undotree.vim")
 call SourceConfigFile("tagbar.vim")
 
+"==============================================================================
+" Test
+"==============================================================================
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 "==============================================================================
 " Color scheme for Vim
 "==============================================================================
@@ -138,6 +144,8 @@ set showcmd
 " the same for go files as go uses tabs instead of spaces.
 augroup local_file_settings
     autocmd!
+    autocmd FileType perl setlocal noexpandtab
+    autocmd FileType perl setlocal softtabstop=0
     autocmd FileType make setlocal noexpandtab
     autocmd FileType make setlocal softtabstop=0
     autocmd FileType go setlocal noexpandtab
