@@ -47,6 +47,11 @@ Plugin 'fatih/vim-go'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'embear/vim-foldsearch'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'aklt/plantuml-syntax'
+Plugin 'tyru/open-browser.vim'
+Plugin 'weirongxu/plantuml-previewer.vim'
+
+let g:plantuml_previewer#plantuml_jar_path = "/home/fpa/bin/plantuml.1.2018.7.jar"
 
 call vundle#end()
 filetype plugin indent on
@@ -155,6 +160,8 @@ augroup local_file_settings
     autocmd FileType go setlocal shiftwidth=2
 augroup END
 
+let g:go_fmt_command = "~/go/bin/goimports"
+
 " When editing a file, always jump to the last known cursor position.
 " [[http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session]]
 " * Don't do it when the position is invalid or when inside an event handler
@@ -167,6 +174,8 @@ autocmd BufReadPost *
  \ exe "normal! g`\"" |
  \ endif
 
+" disable line wrap for diffs
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 "==============================================================================
 " Personal key maps
 "==============================================================================
