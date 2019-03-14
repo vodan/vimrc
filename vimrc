@@ -218,9 +218,13 @@ nnoremap <F6> :set nospell <Enter>
 " command to enable german spell checking.
 command! SPELL execute "normal! :setlocal spell spelllang=de_de <Enter> :syntax spell toplevel <Enter> <C-l>"
 
-" set [ and ] for german keyboard layout.
-map ö [
-map ä ]
+" remap n and N for diff view.
+if &diff
+nnoremap <leader>n n
+nnoremap <leader>N N
+nnoremap n ]czz
+nnoremap N [czz
+endif
 
 " change local working directory
 command! CDC lcd %:p:h
