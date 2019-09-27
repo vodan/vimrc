@@ -109,6 +109,9 @@ silent! colorscheme jellybeans
 " insert line for page break on 80 chars and 100 chars.
 if exists('+colorcolumn')
     set colorcolumn=80,100
+
+" make trailing whitespaces visible.
+set listchars+=trail:·
 " as the plugin colorsupport does overwrite our highlight we need to execute
 " it after the plugin with this autocmd.
 augroup MyColors
@@ -116,6 +119,9 @@ augroup MyColors
     autocmd VimEnter * highlight ColorColumn ctermbg=8 guibg=LightBlue
     autocmd ColorScheme * highlight ColorColumn ctermbg=8 guibg=LightBlue
     autocmd ColorScheme * highlight Search ctermbg=8 guibg=LightBlue
+" configure "set list" colors.
+    autocmd VimEnter * highlight NonText ctermfg=1 guifg=Red
+    autocmd VimEnter * highlight SpecialKey ctermfg=1 guifg=Red
 augroup END
 endif
 
