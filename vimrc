@@ -1,7 +1,7 @@
 " My VIMrc File
 " author: vodan
 
-" map leader key to space 
+" map leader key to space
 " this need to be done here that all plugins use the same leader key
 let mapleader = "\<Space>"
 "==============================================================================
@@ -50,6 +50,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'tyru/open-browser.vim'
 Plugin 'weirongxu/plantuml-previewer.vim'
+Plugin 'kalafut/vim-taskjuggler'
 
 let g:plantuml_previewer#plantuml_jar_path = "/home/fpa/bin/plantuml.1.2018.7.jar"
 
@@ -209,8 +210,21 @@ nnoremap <silent> <Leader>g# :let @/ = expand('<cword>')\|set hlsearch<CR>
 command! SVIM execute "source ".$MYVIMRC
 command! EVIM execute "vsplit ".$MYVIMRC
 
+" command to write as root
+command! WROOT execute "w !sudo cat >%"
+
 " clear search pattern
 nnoremap <Leader>c :let  @/ = ""<CR>
+
+" Ctags help
+nnoremap <Leader>9 g<C-]>
+nnoremap <Leader>8 <C-t>
+
+" Grep for word under the cursor starting from the directory of the file in
+" the active window or grep for it in the current vim directory.
+" FIXME: add subfunction and pass path
+nnoremap <Leader>gr :echom "grep for '<cword>' in '%:p:h/*'"<Bar> :cexpr system('grep -Iinr '.expand('<cword>').' '.expand('%:p:h').'/*')<CR>
+nnoremap <Leader>gR :echom "grep for '<cword>' in '*'"      <Bar> :cexpr system('grep -Iinr '.expand('<cword>').' *')<CR>
 
 " bind keys for spell checking
 nnoremap <F5> :setlocal spell spelllang=en_us <Enter> :syntax spell toplevel <Enter> <C-l>
