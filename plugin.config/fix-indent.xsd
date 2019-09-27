@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="us-ascii" standalone="no"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <xsl:output method="xml" indent="yes" version="1.0" standalone="no"/>
+    <xsl:output method="xml" indent="yes" version="1.0" standalone="no" omit-xml-declaration="yes" cdata-section-elements="internalcomment"/>
     <xsl:strip-space elements="*" />
 
     <xsl:template match="node()|@*">

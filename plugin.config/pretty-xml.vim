@@ -1,10 +1,11 @@
 " prettyfie your xml
 command! -range=% -nargs=* Tidy <line1>,<line2>!tidy -config ~/.vim/plugin.config/xml_indent.config
 command! -range=% -nargs=* XSD <line1>,<line2>!xsltproc ~/.vim/plugin.config/fix-indent.xsd - 2> /dev/null
+
 function! DoTidy()
     let l = line(".")
     let c = col(".")
-    :XSD
+    ":XSD
     :Tidy
     call cursor(l,c)
 endfun
