@@ -31,7 +31,7 @@ Plugin 'jlanzarotta/bufexplorer'
 if $USER ==# "root"
     Plugin 'Shougo/neocomplete.vim'
 else
-    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'ycm-core/YouCompleteMe'
 endif
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -245,6 +245,9 @@ nnoremap <leader>N N
 nnoremap n ]czz
 nnoremap N [czz
 endif
+
+" use ctags file in git directory
+set tags^=./.git/tags;
 
 " change local working directory
 command! CDC lcd %:p:h
