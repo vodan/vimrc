@@ -28,7 +28,8 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jlanzarotta/bufexplorer'
-if $USER ==# "root"
+let REAL_USER = system("whoami| tr -d '\n'")
+if REAL_USER ==# "root"
     Plugin 'Shougo/neocomplete.vim'
 else
     Plugin 'ycm-core/YouCompleteMe'
