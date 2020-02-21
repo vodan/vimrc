@@ -18,33 +18,37 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+let ISCHROOT = system("ischroot;echo $?| tr -d '\n'")
+let REAL_USER = system("whoami| tr -d '\n'")
+
 " List of Vundle handled plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'colorsupport.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jlanzarotta/bufexplorer'
-let REAL_USER = system("whoami| tr -d '\n'")
-if REAL_USER ==# "root"
-    Plugin 'Shougo/neocomplete.vim'
-else
-    Plugin 'ycm-core/YouCompleteMe'
+if ISCHROOT ==# "1"
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'jlanzarotta/bufexplorer'
+    Plugin 'fatih/vim-go'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'vim-pandoc/vim-pandoc-syntax'
+    Plugin 'vim-pandoc/vim-pandoc'
+    if REAL_USER ==# "root"
+        Plugin 'Shougo/neocomplete.vim'
+    else
+        Plugin 'ycm-core/YouCompleteMe'
+    endif
 endif
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'godlygeek/tabular'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'mbbill/undotree'
 Plugin 'majutsushi/tagbar'
 Plugin 'somini/vim-autoclose'
-Plugin 'fatih/vim-go'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'embear/vim-foldsearch'
 Plugin 'junegunn/vim-easy-align'
