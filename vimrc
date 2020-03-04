@@ -18,7 +18,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-let ISCHROOT = system("ischroot;echo $?| tr -d '\n'")
 let REAL_USER = system("whoami| tr -d '\n'")
 
 " List of Vundle handled plugins
@@ -28,7 +27,7 @@ Plugin 'colorsupport.vim'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-if ISCHROOT ==# "1"
+if version >= 801
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'jlanzarotta/bufexplorer'
