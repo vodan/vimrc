@@ -26,7 +26,8 @@ let REAL_USER = system("whoami| tr -d '\n'")
 " List of Vundle handled plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'colorsupport.vim'
+"Plugin 'gryf/wombat256grf'
+"Plugin 'colorsupport.vim'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -112,7 +113,13 @@ set t_Co=256
 highlight normal term=none cterm=none ctermfg=none ctermbg=none gui=none
 
 " set color scheme
-silent! colorscheme jellybeans
+"silent! colorscheme gryffin "kräftige farben, bisschen zu kräftig, Grün Blaues
+"silent! colorscheme evening "angenehm für die augen dunkel
+"silent! colorscheme ubaryd "Kräftige farben, aber angenehm, Rotes farbschema
+"silent! colorscheme badwolf "Kräftige farben wie ubaryd, mehr rot
+"silent! colorscheme triplejelly "pastell, angenehm, bisschen zu sehr pink
+silent! colorscheme welpe "nice, blue, gefällt mir
+
 
 " insert line for page break on 80 chars and 100 chars.
 if exists('+colorcolumn')
@@ -231,7 +238,7 @@ command! WROOT execute "w !sudo cat >%"
 nnoremap <Leader>c :let  @/ = ""<CR>
 
 " Ctags help
-nnoremap <Leader>9 g<C-]>
+nnoremap <Leader>9 <C-]>
 nnoremap <Leader>8 <C-t>
 
 " Grep for word under the cursor starting from the directory of the file in
@@ -254,8 +261,21 @@ nnoremap n ]czz
 nnoremap N [czz
 endif
 
-" use ctags file in git directory
-set tags^=./.git/tags;
+" retrieve the current toplevel git directory (remove trailing newline)
+let $VIM_GIT_DIR = substitute(system("git rev-parse --absolute-git-dir"), '\n$', '','')
+let $VIM_CTAG_FILE = $VIM_GIT_DIR."/tags"
+set tags^=$VIM_CTAG_FILE
+
+if has("cscope")
+    " check cscope for definition of a symbol before checking ctags
+    set csto=0
+    set cscopetag 
+    set cscopeverbose
+    let $VIM_CSCOPE_DATABASE = $VIM_GIT_DIR.'/cscope.out'
+    if filereadable($VIM_CSCOPE_DATABASE)
+        cs add $VIM_CSCOPE_DATABASE $VIM_GIT_DIR/../
+    endif
+endif
 
 " change local working directory
 command! CDC lcd %:p:h

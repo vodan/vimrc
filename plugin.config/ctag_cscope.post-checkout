@@ -1,0 +1,2 @@
+ctags -uR -f ./.git/tags .
+cscope -ubRC -P$(git rev-parse --absolute-git-dir| perl -pe "chomp") -f ./.git/cscope.out -s.
