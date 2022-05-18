@@ -14,6 +14,9 @@ let mapleader = "\<Space>"
 set nocompatible
 filetype off
 
+scriptencoding utf-8
+set encoding=utf-8
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -39,6 +42,7 @@ if version >= 801
         Plugin 'Shougo/neocomplete.vim'
     else
         Plugin 'ycm-core/YouCompleteMe'
+        Plugin 'rdnetto/YCM-Generator'
     endif
 endif
 Plugin 'honza/vim-snippets'
