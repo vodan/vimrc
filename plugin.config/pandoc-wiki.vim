@@ -37,22 +37,10 @@ function! GotoDiary()
 
     if empty(expand(glob(current_dirary_file)))
         let sortedNotes = sort(glob(g:wiki_diary."\/*-diary\.md",0,1))
-        " Now Write our template line by line."
+        " Now Write our template line by line.
         call writefile(
                     \ ["# Notebook for: ".strftime("%F")],
                     \ expand(current_dirary_file),)
-        call writefile(
-                    \ [""],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ ["## Previous Notes:"],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ ['[//]: # (START)'],
-                    \ expand(current_dirary_file),
-                    \ "a")
 
 
         " read previous files here and write it in pre text
@@ -61,42 +49,15 @@ function! GotoDiary()
         if !empty(sortedNotes)
             " we found some files and can add them to the previous note
             " element.
-            let previeusNote = readfile(sortedNotes[-1])
-            let start = index(previeusNote,'[//]: # (START)')-1
-            let end = index(previeusNote,'[//]: # (END)')+1
-            " remove headlines
-            "let output = filter(copy(previeusNote[:start]+previeusNote[end:]), 'v:val !~ "## "')
-            "let output = filter(output, 'v:val !~ "### "')
-            " remove empty lines "
-            let output = filter(copy(previeusNote[:start]+previeusNote[end:]), 'string(v:val) !~ string("")')
-            " indent old text to put it into a code block
-            let output = map(output, "'        '.v:val")
+            let previousNote = readfile(sortedNotes[-1])
+            " Plain copy the previousNote
+            let output = filter(copy(previousNote),'string(v:val) !~ "# Notebook for"')
             call writefile(
                         \ output,
                         \ expand(current_dirary_file),
                         \ "a")
         endif
 
-        call writefile(
-                    \ ['[//]: # (END)'],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ [""],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ ["## Current Notes:"],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ [""],
-                    \ expand(current_dirary_file),
-                    \ "a")
-        call writefile(
-                    \ ["### Overall Tasks:","","### Plan for Today:",""],
-                    \ expand(current_dirary_file),
-                    \ "a")
     endif
     execute "edit ".expand(current_dirary_file)
     execute "lcd ".expand("%:p:h")
